@@ -1,4 +1,4 @@
-package com.as.agehistory
+package com.`as`.agehistory
 
 import android.app.*
 import android.os.Bundle
@@ -11,6 +11,8 @@ import java.time.*
 import java.time.chrono.HijrahDate
 import java.time.format.DateTimeFormatter
 import java.util.Locale
+import java.time.temporal.ChronoField
+import java.time.temporal.ChronoUnit
 
 class MainActivity : Activity() {
 
@@ -97,7 +99,7 @@ class MainActivity : Activity() {
         dateCard.addView(text(gregorian, 22f, white))
         dateCard.addView(text("التاريخ الهجري", 18f, gold))
         dateCard.addView(text(
-            "${hijri.dayOfMonth} / ${hijri.monthValue} / ${hijri.year}",
+            "${hijri.get(ChronoField.DAY_OF_MONTH)} / ${hijri.get(ChronoField.MONTH_OF_YEAR)} / ${hijri.get(ChronoField.YEAR)}",
             22f, white
         ))
         root.addView(dateCard)
